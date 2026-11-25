@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "METIS"
+version = "1.0.0"
+authors = [{ name = "AmirH. Mahmoudi" }]
+description = "Machine Evaluation & Tabular Inference System"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "catboost>=1.2.0",
+    "joblib>=1.3.0",
+    "lightgbm>=4.3.0",
+    "matplotlib>=3.8.0",
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "psutil>=5.9.0",
+    "PySide6>=6.6.0",
+    "scikit-learn>=1.4.0",
+    "scipy>=1.12.0",
+    "seaborn>=0.13.0",
+    "semopy>=2.3.9",
+    "shap>=0.44.0",
+    "xgboost>=2.0.0",
+]
+
+[project.scripts]
+METIS = "gui.main_window:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["config*", "core*", "gui*", "gui.tabs*"]
+exclude = ["tests*", "results*"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]

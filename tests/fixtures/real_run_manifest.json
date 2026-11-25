@@ -1,0 +1,302 @@
+{
+  "manifest_version": "1.1.0",
+  "run_id": "metis-run-20260904-153703-68baf5",
+  "status": "completed",
+  "start_time": "2026-09-04 15:37:03",
+  "created_at": "2026-09-04T12:07:03Z",
+  "updated_at": "2026-09-04T12:23:12Z",
+  "end_time": "2026-09-04 15:53:12",
+  "elapsed_seconds": 967.19,
+  "metis_version": "1.0.0",
+  "random_seed": 42,
+  "environment": {
+    "python_version": "3.11.15",
+    "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.39",
+    "os": "Linux",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "scikit-learn": "1.8.0",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.1",
+      "seaborn": "0.13.2",
+      "joblib": "1.5.3",
+      "xgboost": "3.2.0",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "shap": "0.51.0",
+      "semopy": "2.3.11",
+      "PySide6": "6.10.2"
+    }
+  },
+  "config": {
+    "dataset": {
+      "input_path": "/home/amyr/FULLY_CLEAN_REMEDIATED.csv",
+      "target_columns": [
+        "cattell_totalscore"
+      ],
+      "feature_columns": [
+        "yrs_education",
+        "additional_sleep_efficiency",
+        "total_intracranial",
+        "brain_stem",
+        "age_centered",
+        "sex_male",
+        "cortex_vol",
+        "wm_vol",
+        "ventricles_vol",
+        "thalamus_vol",
+        "caudate_vol",
+        "putamen_vol",
+        "pallidum_vol",
+        "hippocampus_vol",
+        "amygdala_vol",
+        "accumbens_vol",
+        "ventral_dc_vol",
+        "smoker_ordinal"
+      ],
+      "categorical_columns": null,
+      "numerical_columns": [],
+      "active_columns": [
+        "yrs_education",
+        "additional_sleep_efficiency",
+        "total_intracranial",
+        "brain_stem",
+        "cattell_totalscore",
+        "age_centered",
+        "sex_male",
+        "cortex_vol",
+        "wm_vol",
+        "ventricles_vol",
+        "thalamus_vol",
+        "caudate_vol",
+        "putamen_vol",
+        "pallidum_vol",
+        "hippocampus_vol",
+        "amygdala_vol",
+        "accumbens_vol",
+        "ventral_dc_vol",
+        "smoker_ordinal"
+      ],
+      "id_column": null,
+      "task_type": "regression"
+    },
+    "preprocessing": {
+      "missingness_threshold": 0.25,
+      "numeric_imputer_strategy": "median",
+      "categorical_imputer_strategy": "most_frequent",
+      "scale_numeric": true,
+      "scaler_type": "standard",
+      "handle_unknown_categories": "ignore",
+      "drop_constant_columns": true
+    },
+    "cv": {
+      "outer_folds": 10,
+      "inner_folds": 5,
+      "n_iter": 25,
+      "n_jobs": -1,
+      "bootstrap_n": 1000,
+      "min_n": 25,
+      "random_state": 42,
+      "fast_mode": false,
+      "skip_shap": false,
+      "use_group_cv": false,
+      "permutation_repeats": 20
+    },
+    "models": {
+      "selected_models": [
+        "ridge",
+        "lasso",
+        "elasticnet",
+        "bayesian_ridge",
+        "random_forest",
+        "extra_trees",
+        "hist_gradient_boosting",
+        "xgboost",
+        "lightgbm",
+        "catboost",
+        "svr",
+        "mlp"
+      ],
+      "use_all_models": true,
+      "enable_stacking": true,
+      "stacking_top_k": 3,
+      "per_model_overrides": {
+        "ridge": {},
+        "bayesian_ridge": {},
+        "random_forest": {},
+        "extra_trees": {},
+        "hist_gradient_boosting": {},
+        "xgboost": {},
+        "lightgbm": {},
+        "catboost": {},
+        "svr": {},
+        "mlp": {
+          "hidden_layer_sizes": [
+            64,
+            32
+          ],
+          "alpha": 0.0001
+        }
+      }
+    },
+    "sem_configs": {
+      "cattell_totalscore": {
+        "target": "cattell_totalscore",
+        "enabled": true,
+        "feature_columns": [
+          "yrs_education",
+          "age_centered",
+          "sex_male"
+        ],
+        "covariates": [
+          "additional_sleep_efficiency",
+          "total_intracranial",
+          "smoker_ordinal"
+        ],
+        "mediators": [
+          "brain_stem",
+          "cattell_totalscore",
+          "cortex_vol",
+          "wm_vol",
+          "ventricles_vol"
+        ],
+        "latent_variables": {},
+        "custom_model_syntax": null,
+        "missing_data_method": "fiml",
+        "standardize": true,
+        "estimator": "ML",
+        "robust_se": true,
+        "bootstrap": true,
+        "bootstrap_n": 2000,
+        "random_state": 42,
+        "min_subjects": 30
+      }
+    },
+    "reporting": {
+      "generate_html": true,
+      "generate_latex": true,
+      "generate_csv_tables": true,
+      "generate_json_manifest": true,
+      "title": "Academic Machine Learning & Structural Equation Modeling Report",
+      "dpi": 300,
+      "color_palette": "colorblind-safe",
+      "embed_interactive_plots": true
+    },
+    "output_config": {
+      "output_dir": "/home/amyr/Desktop/INT",
+      "report_title": "Academic Machine Learning & Structural Equation Modeling Report",
+      "mode": "production",
+      "table_palette": "colorblind-safe",
+      "table_style": "publication",
+      "decimal_precision": 3,
+      "generate_html": true,
+      "generate_latex": true,
+      "generate_csv": true,
+      "generate_json_manifest": true,
+      "figure_dpi": 300,
+      "figure_formats": [
+        "png",
+        "pdf",
+        "svg"
+      ],
+      "include_ml_sections": {
+        "leaderboard": true,
+        "model_comparison": true,
+        "calibration": true,
+        "regression_diagnostics": true,
+        "feature_importance": true,
+        "shap_beeswarm": true,
+        "learning_curve": true
+      },
+      "include_sem_sections": {
+        "structural_paths": true,
+        "mediation_effects": true,
+        "fit_indices": true,
+        "path_diagram": true,
+        "forest_plot": true,
+        "covariance_heatmap": true
+      },
+      "include_metrics": {
+        "r2": true,
+        "rmse": true,
+        "mae": true,
+        "pearson_r": true,
+        "spearman_rho": true,
+        "accuracy": true,
+        "balanced_accuracy": true,
+        "f1_macro": true,
+        "roc_auc": true,
+        "mcc": true,
+        "bootstrap_ci": true,
+        "paired_difference": true,
+        "corrected_ttest": true
+      }
+    },
+    "run_sem": true,
+    "output_dir": "/home/amyr/Desktop/INT",
+    "mode": "production",
+    "transformation_log": []
+  },
+  "dataset_summary": {
+    "input_path": "/home/amyr/FULLY_CLEAN_REMEDIATED.csv",
+    "target_columns": [
+      "cattell_totalscore"
+    ],
+    "feature_columns": [
+      "yrs_education",
+      "additional_sleep_efficiency",
+      "total_intracranial",
+      "brain_stem",
+      "age_centered",
+      "sex_male",
+      "cortex_vol",
+      "wm_vol",
+      "ventricles_vol",
+      "thalamus_vol",
+      "caudate_vol",
+      "putamen_vol",
+      "pallidum_vol",
+      "hippocampus_vol",
+      "amygdala_vol",
+      "accumbens_vol",
+      "ventral_dc_vol",
+      "smoker_ordinal"
+    ],
+    "active_columns": [
+      "yrs_education",
+      "additional_sleep_efficiency",
+      "total_intracranial",
+      "brain_stem",
+      "cattell_totalscore",
+      "age_centered",
+      "sex_male",
+      "cortex_vol",
+      "wm_vol",
+      "ventricles_vol",
+      "thalamus_vol",
+      "caudate_vol",
+      "putamen_vol",
+      "pallidum_vol",
+      "hippocampus_vol",
+      "amygdala_vol",
+      "accumbens_vol",
+      "ventral_dc_vol",
+      "smoker_ordinal"
+    ],
+    "id_column": null,
+    "task_type": "regression",
+    "total_rows": 624,
+    "total_columns": 19,
+    "memory_usage_mb": 0.09
+  },
+  "execution": {
+    "current_stage": "COMPLETED",
+    "completed_targets": [
+      "cattell_totalscore"
+    ],
+    "error": null
+  }
+}
